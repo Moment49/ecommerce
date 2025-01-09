@@ -33,7 +33,7 @@ class RegisterUserSerializer(serializers.ModelSerializer):
 
 class LoginSerializer(serializers.Serializer):
     email = serializers.EmailField()
-    password = serializers.CharField()
+    password = serializers.CharField(write_only=True)
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -45,8 +45,6 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Products
         fields = ['id', 'product_name', 'description', 'price', 'created_by', 'category']
-
-
 
 
 class OrderSerializer(serializers.ModelSerializer):
